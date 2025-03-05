@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry Alisha 💙</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            max-width: 90%;
+            text-align: center;
+        }
+        .slideshow {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #800080; /* Purple border */
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slideshow img.active {
+            opacity: 1;
+        }
+        h1 {
+            color: #ff6b6b;
+            font-family: 'Comic Sans MS', cursive;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            color: #333;
+            font-size: 18px;
+            font-style: italic;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slideshow">
+            <img src="your-image1.jpg" class="active" alt="Alisha">
+            <img src="your-image2.jpg" alt="Rimjhim">
+            <img src="your-image3.jpg" alt="Saloni">
+        </div>
+        <h1 id="name-display">Sorry Alisha 💙</h1>
+        <p id="message">Mujhse jo bhi galti ho gayi ho, uske liye dil se sorry. Tum meri acchi dost ho, aur main tumhe kabhi bhi dukhi nahi dekh sakta. Please maaf kar do! 🙏</p>
+        <img src="anime-sad.gif" alt="Anime Apology" width="100" height="100">
+        <br>
+        <button class="btn" onclick="changeMessage()">Smile Again 😊</button>
+    </div>
+
+    <script>
+        function changeMessage() {
+            document.getElementById("message").innerText = "Yay! Tum muskura rahi ho! 😊";
+        }
+
+        let index = 0;
+        let names = ["Alisha", "Rimjhim", "Saloni"];
+        function slideShow() {
+            let images = document.querySelectorAll(".slideshow img");
+            let nameDisplay = document.getElementById("name-display");
+            images.forEach(img => img.classList.remove("active"));
+            images[index].classList.add("active");
+            nameDisplay.innerText = `Sorry ${names[index]} 💙`;
+            index = (index + 1) % images.length;
+        }
+        setInterval(slideShow, 3000);
+    </script>
+</body>
+</html>
